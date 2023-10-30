@@ -4,7 +4,7 @@ namespace DiamondKataSolver;
 
 internal sealed class Diamond
 {
-    private readonly StringBuilder _diamondBuilder = new StringBuilder();
+    private readonly StringBuilder _diamondBuilder = new();
     
     internal string CreateDiamond(char girdleLetter)
     {
@@ -20,12 +20,14 @@ internal sealed class Diamond
         for (int i = 1; i < girdleLetterPosition; ++i)
         {
             AppendRow((char)(firstAlphabetLetter + i), girdleLetter);
-            if (i < girdleLetterPosition - 1)
-            {
-                _diamondBuilder.Append("\n");
-            }
         }
-
+        
+        for (int i = girdleLetterPosition - 2; i >= 1; --i)
+        {
+            AppendRow((char)(firstAlphabetLetter + i), girdleLetter);
+        }
+        
+        AppendTip(girdleLetter, firstAlphabetLetter);
         return _diamondBuilder.ToString();
     }
     
@@ -37,7 +39,7 @@ internal sealed class Diamond
         _diamondBuilder.Append(currentRowLetter);
         int totalMiddleSpaces = 2 * (currentRowLetterPosition - 1) - 1;
         AppendSpaces(totalMiddleSpaces);
-        _diamondBuilder.Append(currentRowLetter);
+        _diamondBuilder.Append($"{currentRowLetter}\n");
     }
     
     private void AppendSpaces(int number)
