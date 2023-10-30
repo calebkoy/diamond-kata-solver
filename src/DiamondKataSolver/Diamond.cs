@@ -4,28 +4,51 @@ namespace DiamondKataSolver;
 
 internal sealed class Diamond
 {
+    private readonly StringBuilder _diamondBuilder = new StringBuilder();
+    
     internal string CreateDiamond(char girdleLetter)
     {
-        StringBuilder stringBuilder = new StringBuilder();
+        if (girdleLetter is 'A' or 'a')
+        {
+            return girdleLetter.ToString();
+        }
+        
+        _diamondBuilder.Length = 0;
         int girdleLetterPosition = GetLetterPosition(girdleLetter);
         char firstAlphabetLetter = char.IsUpper(girdleLetter) ? 'A' : 'a';
-        stringBuilder.Append(firstAlphabetLetter);
+        AppendTip(girdleLetter, firstAlphabetLetter);
         for (int i = 1; i < girdleLetterPosition; ++i)
         {
-            if (i == 1)
-            {
-                stringBuilder.Append("\n");
-            }
-            
-            char currentLetter = (char)(firstAlphabetLetter + i);
-            stringBuilder.Append($"{currentLetter}{currentLetter}");
+            AppendRow((char)(firstAlphabetLetter + i), girdleLetter);
             if (i < girdleLetterPosition - 1)
             {
-                stringBuilder.Append("\n");
+                _diamondBuilder.Append("\n");
             }
         }
 
-        return stringBuilder.ToString();
+        return _diamondBuilder.ToString();
+    }
+    
+    private void AppendRow(char currentRowLetter, char girdleLetter)
+    {
+        int currentRowLetterPosition = GetLetterPosition(currentRowLetter);
+        int totalLeftSpaces = GetLetterPosition(girdleLetter) - currentRowLetterPosition;
+        AppendSpaces(totalLeftSpaces);
+        _diamondBuilder.Append($"{currentRowLetter}{currentRowLetter}");
+    }
+    
+    private void AppendSpaces(int number)
+    {
+        for (int i = 0; i < number; ++i)
+        {
+            _diamondBuilder.Append(' ');
+        }
+    }
+    
+    private void AppendTip(char letter, char firstAlphabetLetter)
+    {
+        AppendSpaces(GetLetterPosition(letter) - 1);
+        _diamondBuilder.Append($"{firstAlphabetLetter}\n");
     }
     
     private static int GetLetterPosition(char letter)
