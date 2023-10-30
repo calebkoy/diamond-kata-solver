@@ -9,9 +9,11 @@ internal sealed class Diamond
         StringBuilder stringBuilder = new StringBuilder();
         int girdleLetterPosition = GetLetterPosition(girdleLetter);
         char firstAlphabetLetter = char.IsUpper(girdleLetter) ? 'A' : 'a';
-        for (int i = 0; i < girdleLetterPosition; ++i)
+        stringBuilder.Append(firstAlphabetLetter);
+        for (int i = 1; i < girdleLetterPosition; ++i)
         {
-            stringBuilder.Append((char)(firstAlphabetLetter + i));
+            char currentLetter = (char)(firstAlphabetLetter + i);
+            stringBuilder.Append($"{currentLetter}{currentLetter}");
         }
 
         return stringBuilder.ToString();
