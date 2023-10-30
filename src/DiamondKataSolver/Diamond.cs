@@ -34,7 +34,10 @@ internal sealed class Diamond
         int currentRowLetterPosition = GetLetterPosition(currentRowLetter);
         int totalLeftSpaces = GetLetterPosition(girdleLetter) - currentRowLetterPosition;
         AppendSpaces(totalLeftSpaces);
-        _diamondBuilder.Append($"{currentRowLetter}{currentRowLetter}");
+        _diamondBuilder.Append(currentRowLetter);
+        int totalMiddleSpaces = 2 * (currentRowLetterPosition - 1) - 1;
+        AppendSpaces(totalMiddleSpaces);
+        _diamondBuilder.Append(currentRowLetter);
     }
     
     private void AppendSpaces(int number)
