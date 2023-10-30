@@ -5,11 +5,24 @@ namespace DiamondKataSolverTests;
 public sealed class DiamondTests
 {
     [Theory]
+    [InlineData(1)]
+    [InlineData(' ')]
+    [InlineData(';')]
+    public void Given_Invalid_Letter_CreateDiamond_Throws_Exception(char input)
+    {
+        // Arrange
+        Diamond diamond = new();
+
+        // Act/Assert
+        Assert.Throws<InvalidOperationException>(() => diamond.CreateDiamond(input));
+    }
+    
+    [Theory]
     [MemberData(nameof(GetTestData))]
     public void Given_Valid_Letter_CreateDiamond_Returns_Correct_Diamond_Sequence(char girdleLetter, string expectedOutput)
     {
         // Arrange
-        Diamond diamond = new Diamond();
+        Diamond diamond = new();
 
         // Act/Assert
         Assert.Equal(expectedOutput, diamond.CreateDiamond(girdleLetter));
