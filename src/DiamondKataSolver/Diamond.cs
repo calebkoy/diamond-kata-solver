@@ -2,8 +2,8 @@ namespace DiamondKataSolver;
 
 internal sealed class Diamond
 {
-    internal string Create(char letter)
+    internal string CreateDiamond(char girdleLetter)
     {
-        return string.Empty;
+        return girdleLetter.ToString();
     }
 }
