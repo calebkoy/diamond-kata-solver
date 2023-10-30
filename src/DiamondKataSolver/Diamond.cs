@@ -12,8 +12,17 @@ internal sealed class Diamond
         stringBuilder.Append(firstAlphabetLetter);
         for (int i = 1; i < girdleLetterPosition; ++i)
         {
+            if (i == 1)
+            {
+                stringBuilder.Append("\n");
+            }
+            
             char currentLetter = (char)(firstAlphabetLetter + i);
             stringBuilder.Append($"{currentLetter}{currentLetter}");
+            if (i < girdleLetterPosition - 1)
+            {
+                stringBuilder.Append("\n");
+            }
         }
 
         return stringBuilder.ToString();
