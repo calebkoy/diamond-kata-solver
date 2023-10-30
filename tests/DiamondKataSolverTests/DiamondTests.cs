@@ -16,7 +16,7 @@ public sealed class DiamondTests
 
     [Theory]
     [MemberData(nameof(GetTestData))]
-    public void Given_Valid_Letter_CreateDiamond_Returns_Correct_Repeated_Character_Sequence(char girdleLetter, string expectedOutput)
+    public void Given_Valid_Letter_CreateDiamond_Returns_Correct_Repeated_Character_Sequence_With_New_Lines(char girdleLetter, string expectedOutput)
     {
         // Arrange
         Diamond diamond = new Diamond();
@@ -24,63 +24,63 @@ public sealed class DiamondTests
         // Act/Assert
         Assert.Equal(expectedOutput, diamond.CreateDiamond(girdleLetter));
     }
-    
+
     public static IEnumerable<object[]> GetTestData()
     {
         return new List<object[]>
         {
             new object[] { 'a', "a" },
             new object[] { 'A', "A" },
-            new object[] { 'b', "abb" },
-            new object[] { 'B', "ABB" },
-            new object[] { 'c', "abbcc" },
-            new object[] { 'C', "ABBCC" },
-            new object[] { 'd', "abbccdd" },
-            new object[] { 'D', "ABBCCDD" },
-            new object[] { 'e', "abbccddee" },
-            new object[] { 'E', "ABBCCDDEE" },
-            new object[] { 'f', "abbccddeeff" },
-            new object[] { 'F', "ABBCCDDEEFF" },
-            new object[] { 'g', "abbccddeeffgg" },
-            new object[] { 'G', "ABBCCDDEEFFGG" },
-            new object[] { 'h', "abbccddeeffgghh" },
-            new object[] { 'H', "ABBCCDDEEFFGGHH" },
-            new object[] { 'i', "abbccddeeffgghhii" },
-            new object[] { 'I', "ABBCCDDEEFFGGHHII" },
-            new object[] { 'j', "abbccddeeffgghhiijj" },
-            new object[] { 'J', "ABBCCDDEEFFGGHHIIJJ" },
-            new object[] { 'k', "abbccddeeffgghhiijjkk" },
-            new object[] { 'K', "ABBCCDDEEFFGGHHIIJJKK" },
-            new object[] { 'l', "abbccddeeffgghhiijjkkll" },
-            new object[] { 'L', "ABBCCDDEEFFGGHHIIJJKKLL" },
-            new object[] { 'm', "abbccddeeffgghhiijjkkllmm" },
-            new object[] { 'M', "ABBCCDDEEFFGGHHIIJJKKLLMM" },
-            new object[] { 'n', "abbccddeeffgghhiijjkkllmmnn" },
-            new object[] { 'N', "ABBCCDDEEFFGGHHIIJJKKLLMMNN" },
-            new object[] { 'o', "abbccddeeffgghhiijjkkllmmnnoo" },
-            new object[] { 'O', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOO" },
-            new object[] { 'p', "abbccddeeffgghhiijjkkllmmnnoopp" },
-            new object[] { 'P', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPP" },
-            new object[] { 'q', "abbccddeeffgghhiijjkkllmmnnooppqq" },
-            new object[] { 'Q', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQ" },
-            new object[] { 'r', "abbccddeeffgghhiijjkkllmmnnooppqqrr" },
-            new object[] { 'R', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRR" },
-            new object[] { 's', "abbccddeeffgghhiijjkkllmmnnooppqqrrss" },
-            new object[] { 'S', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSS" },
-            new object[] { 't', "abbccddeeffgghhiijjkkllmmnnooppqqrrsstt" },
-            new object[] { 'T', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTT" },
-            new object[] { 'u', "abbccddeeffgghhiijjkkllmmnnooppqqrrssttuu" },
-            new object[] { 'U', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUU" },
-            new object[] { 'v', "abbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvv" },
-            new object[] { 'V', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVV" },
-            new object[] { 'w', "abbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvww" },
-            new object[] { 'W', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWW" },
-            new object[] { 'x', "abbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxx" },
-            new object[] { 'X', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXX" },
-            new object[] { 'y', "abbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyy" },
-            new object[] { 'Y', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYY" },
-            new object[] { 'z', "abbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz" },
-            new object[] { 'Z', "ABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ" }
+            new object[] { 'b', "a\nbb" },
+            new object[] { 'B', "A\nBB" },
+            new object[] { 'c', "a\nbb\ncc" },
+            new object[] { 'C', "A\nBB\nCC" },
+            new object[] { 'd', "a\nbb\ncc\ndd" },
+            new object[] { 'D', "A\nBB\nCC\nDD" },
+            new object[] { 'e', "a\nbb\ncc\ndd\nee" },
+            new object[] { 'E', "A\nBB\nCC\nDD\nEE" },
+            new object[] { 'f', "a\nbb\ncc\ndd\nee\nff" },
+            new object[] { 'F', "A\nBB\nCC\nDD\nEE\nFF" },
+            new object[] { 'g', "a\nbb\ncc\ndd\nee\nff\ngg" },
+            new object[] { 'G', "A\nBB\nCC\nDD\nEE\nFF\nGG" },
+            new object[] { 'h', "a\nbb\ncc\ndd\nee\nff\ngg\nhh" },
+            new object[] { 'H', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH" },
+            new object[] { 'i', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii" },
+            new object[] { 'I', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII" },
+            new object[] { 'j', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj" },
+            new object[] { 'J', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ" },
+            new object[] { 'k', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk" },
+            new object[] { 'K', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK" },
+            new object[] { 'l', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll" },
+            new object[] { 'L', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL" },
+            new object[] { 'm', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm" },
+            new object[] { 'M', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM" },
+            new object[] { 'n', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn" },
+            new object[] { 'N', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN" },
+            new object[] { 'o', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo" },
+            new object[] { 'O', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO" },
+            new object[] { 'p', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp" },
+            new object[] { 'P', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP" },
+            new object[] { 'q', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq" },
+            new object[] { 'Q', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ" },
+            new object[] { 'r', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq\nrr" },
+            new object[] { 'R', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ\nRR" },
+            new object[] { 's', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq\nrr\nss" },
+            new object[] { 'S', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ\nRR\nSS" },
+            new object[] { 't', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq\nrr\nss\ntt" },
+            new object[] { 'T', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ\nRR\nSS\nTT" },
+            new object[] { 'u', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq\nrr\nss\ntt\nuu" },
+            new object[] { 'U', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ\nRR\nSS\nTT\nUU" },
+            new object[] { 'v', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq\nrr\nss\ntt\nuu\nvv" },
+            new object[] { 'V', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ\nRR\nSS\nTT\nUU\nVV" },
+            new object[] { 'w', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq\nrr\nss\ntt\nuu\nvv\nww" },
+            new object[] { 'W', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ\nRR\nSS\nTT\nUU\nVV\nWW" },
+            new object[] { 'x', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq\nrr\nss\ntt\nuu\nvv\nww\nxx" },
+            new object[] { 'X', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ\nRR\nSS\nTT\nUU\nVV\nWW\nXX" },
+            new object[] { 'y', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq\nrr\nss\ntt\nuu\nvv\nww\nxx\nyy" },
+            new object[] { 'Y', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ\nRR\nSS\nTT\nUU\nVV\nWW\nXX\nYY" },
+            new object[] { 'z', "a\nbb\ncc\ndd\nee\nff\ngg\nhh\nii\njj\nkk\nll\nmm\nnn\noo\npp\nqq\nrr\nss\ntt\nuu\nvv\nww\nxx\nyy\nzz" },
+            new object[] { 'Z', "A\nBB\nCC\nDD\nEE\nFF\nGG\nHH\nII\nJJ\nKK\nLL\nMM\nNN\nOO\nPP\nQQ\nRR\nSS\nTT\nUU\nVV\nWW\nXX\nYY\nZZ" }
         };
     }
 }
