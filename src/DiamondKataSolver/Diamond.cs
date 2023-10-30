@@ -8,6 +8,11 @@ internal sealed class Diamond
     
     internal string CreateDiamond(char girdleLetter)
     {
+        if (!char.IsLetter(girdleLetter))
+        {
+            throw new InvalidOperationException($"Expected a letter from the English alphabet but got: '{girdleLetter}'");
+        }
+        
         if (girdleLetter is 'A' or 'a')
         {
             return girdleLetter.ToString();
